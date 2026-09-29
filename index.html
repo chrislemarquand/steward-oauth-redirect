@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Steward — redirecting…</title>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  <p>Redirecting back to Steward…</p>
+  <script>
+    // Monzo's OAuth redirect lands here (an https URL, which Monzo's own
+    // systems can handle) carrying ?code=...&state=... in the query string.
+    // This immediately hands off to the app's custom URL scheme, which iOS
+    // intercepts via the registered CFBundleURLTypes entry — no server
+    // logic needed, just this one static redirect.
+    window.location.replace('steward://monzo-callback' + window.location.search);
+  </script>
+  <noscript>
+    <p>JavaScript is required to complete sign-in. Please open this link in a browser with JavaScript enabled.</p>
+  </noscript>
+</body>
+</html>
